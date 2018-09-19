@@ -13,14 +13,14 @@ from collections import Counter
 
 # ============================== data preprocessing ===========================================
 # define column names
-names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class']
+names = ['class', 'sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 
 # loading training data
-df = pd.read_csv('/Users/kevin/Desktop/Blog/iris.data.txt', header=None, names=names)
+df = pd.read_csv('/home/ubuntu/workspaces/blog-code/iris.data', header=None, names=names, delimiter="\t")
 print(df.head())
 
 # create design matrix X and target vector y
-X = np.array(df.ix[:, 0:4]) 	# end index is exclusive
+X = np.array(df.ix[:, 1:4]) 	# end index is exclusive
 y = np.array(df['class']) 	# showing you two ways of indexing a pandas df
 
 # split into train and test
